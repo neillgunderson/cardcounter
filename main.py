@@ -17,7 +17,7 @@ random.shuffle(cards)
 print("\nHere are the rulles for card counting: \n\nValues 2-6 = +1 \nValues 7-9 = 0 \nValues 10, Jack, Queen, King and Ace = -1 \n\nKeep track of the total expected value and input it at the end. Good luck.")
 
 # Ask the user how many cards they want to see
-num_cards = int(input("\nHow many cards do you want to see? "))
+num_cards = int(input("\nHow many cards would you like to see? "))
 if num_cards > len(cards):
     print(f"Maximum available cards is {len(cards)}. Using that.")
     num_cards = len(cards)

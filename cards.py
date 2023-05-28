@@ -1,6 +1,8 @@
 spade_dict = {
 
+
 ####ACES####
+
 
     "Ace of Spades":
     """
@@ -172,7 +174,9 @@ spade_dict = {
     """
 }
 
+
 ###HEARTS###
+
 
 heart_dict = {
 
@@ -346,7 +350,9 @@ heart_dict = {
     """
 }
 
+
 ###CLUBS####
+
 
 club_dict = {
 
@@ -520,7 +526,9 @@ club_dict = {
     """
 }
 
+
 ##DIAMONDS##
+
 
 diamond_dict = {
    
