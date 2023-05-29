@@ -1,4 +1,5 @@
 import random
+import time
 from cards import spade_dict, heart_dict, club_dict, diamond_dict
 
 # Merge all the dictionaries into one
@@ -12,24 +13,31 @@ card_values = {f"{rank} of {suit}": value for suit in ['Spades', 'Hearts', 'Club
 cards = list(card_dict.keys())
 random.shuffle(cards)
 
-#The rules for card counting
-
-print("\nHere are the rulles for card counting: \n\nValues 2-6 = +1 \nValues 7-9 = 0 \nValues 10, Jack, Queen, King and Ace = -1 \n\nKeep track of the total expected value and input it at the end. Good luck.")
-
 # Ask the user how many cards they want to see
-num_cards = int(input("\nHow many cards would you like to see? "))
+num_cards = int(input("How many cards do you want to see? "))
 if num_cards > len(cards):
     print(f"Maximum available cards is {len(cards)}. Using that.")
     num_cards = len(cards)
+
+# Ask the user if they want a time limit
+time_limit = input("Do you want a time limit? (y/n) ")
+if time_limit.lower() == "y":
+    delay = int(input("Enter the time limit in seconds: "))
+else:
+    delay = None
 
 counter = 0
 for i in range(num_cards):
     card = cards[i]
     print(card_dict[card])
     counter += card_values[card]
-    # If more than one card is to be shown, wait for user to press enter
+    # If more than one card is to be shown, wait for user to press enter or delay for the set time
     if i < num_cards - 1:  # Prevent asking for Enter when there's no card left
-        input("Press Enter to reveal the next card...")
+        if delay is not None:
+            print(f"Next card in {delay} seconds...")
+            time.sleep(delay)
+        else:
+            input("Press Enter to reveal the next card...")
 
 print("Please enter the total count value:")
 user_input = int(input())
