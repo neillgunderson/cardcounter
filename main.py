@@ -13,11 +13,17 @@ card_values = {f"{rank} of {suit}": value for suit in ['Spades', 'Hearts', 'Club
 cards = list(card_dict.keys())
 random.shuffle(cards)
 
-# Ask the user how many cards they want to see
-num_cards = int(input("How many cards do you want to see? "))
-if num_cards > len(cards):
-    print(f"Maximum available cards is {len(cards)}. Using that.")
+# Ask the user if they want to enter into simulation mode
+simulation_mode = input("Do you want to enter into simulation mode? (y/n) ")
+
+if simulation_mode.lower() == "y":
     num_cards = len(cards)
+else:
+    # Ask the user how many cards they want to see
+    num_cards = int(input("How many cards do you want to see? "))
+    if num_cards > len(cards):
+        print(f"Maximum available cards is {len(cards)}. Using that.")
+        num_cards = len(cards)
 
 # Ask the user if they want a time limit
 time_limit = input("Do you want a time limit? (y/n) ")
