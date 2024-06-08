@@ -13,8 +13,14 @@ card_values = {f"{rank} of {suit}": value for suit in ['Spades', 'Hearts', 'Club
 cards = list(card_dict.keys())
 random.shuffle(cards)
 
+#Prompt that tells the player how to count cards
+print("Welcome to the Card Counting Training Bot")
+print("\n Values 2 through 6 are +1 to the count")
+print("Values 7 through 9 are 0 to the count")
+print("Values 10 through Ace are -1 to the count.")
+
 # Ask the user if they want to enter into simulation mode
-simulation_mode = input("Do you want to enter into simulation mode? (y/n) ")
+simulation_mode = input("\n Do you want to enter into simulation mode? (y/n) ")
 
 if simulation_mode.lower() == "y":
     num_cards = len(cards)
@@ -45,10 +51,15 @@ for i in range(num_cards):
         else:
             input("Press Enter to reveal the next card...")
 
-print("Please enter the total count value:")
-user_input = int(input())
+while True:
+    try:
+        user_input = int(input("Please enter the total count value: "))
+        break
+    except ValueError:
+        print("Please enter a valid number.")
 
 if user_input == counter:
     print("Correct!")
 else:
     print(f"Wrong! The correct count value is {counter}")
+    
