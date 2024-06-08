@@ -61,5 +61,4 @@ while True:
 if user_input == counter:
     print("Correct!")
 else:
-    print(f"Wrong! The correct count value is {counter}")
-    
+    print(f"Wrong! The correct count value is {counter}.")
